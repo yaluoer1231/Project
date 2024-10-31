@@ -1,0 +1,63 @@
+<div class="title"></div>
+    
+<div class="NoteArea">
+    <div class="SelectAll">
+        <div class="left">
+            <button type="Back" *ngIf="showCode != 4" 
+                    (click)="back()">關閉</button>
+        </div>
+        <div class="middle">
+            <span *ngIf="showCode == 4">請選擇實習生：
+                <select #internname [ngModel]="searchInternId" (ngModelChange)="searchInternNote(internname.value)">
+                    <option [value]="0">顯示全部</option>
+                    <option *ngFor="let interns of unLockInterns"  [value]="interns.id">{{ interns.name }}
+                    </option>
+                </select>
+            </span>
+            <span class="dateSort" *ngIf="showCode == 4"> 全體查詢：
+                <select #dateSort [ngModel]="searchInternId" (ngModelChange)="searchInternNote(dateSort.value)">
+                    <option [value]="0">依修改日期 新→舊</option>
+                    <option [value]="-1">依修改日期 舊→新</option>
+                    <option [value]="-2">依實習生序號 高→低</option>
+                    <option [value]="-3">依實習生序號 低→高</option>
+                </select>
+            </span>
+        </div>
+        <div class="right">
+            <button class="Add" (click)="onSelect(notes[0], 3)">新增筆記</button>
+        </div>
+    </div>
+
+    <div class="Note" >
+       <div class="NoteForList" *ngIf="showCode == 4">
+            <ul>
+                <li class="ListTitle">
+                    <p class="NoteIntern">實習生姓名
+                    <p class="Notetitle">筆記標題
+                    <p class="NoteDateModifited">修改時間
+                    <p class="ButtonContorl">操作
+                </li>
+                <li *ngFor="let note of notes" class="ListNote">
+                    <div class="ClickArea">
+                        <p class="NoteIntern">{{ note.name }}
+                        <p class="Notetitle" (click)="onSelect(note, 0)">{{ note.noteTitle }}
+                        <p class="NoteDateModifited">{{ note.dateModifited | date : ' yyyy-MM-dd　a hh:mm' }}
+                    </div>
+                    <p class="ButtonContorl">    
+                        <button class="Delete" (click)="onSelect(note, 2)">刪除</button>
+                </li>
+            </ul>
+        </div>
+        <div class="NoteForEdit" *ngIf="showCode != 4">
+            <app-intern-note-edit class="edit"
+                [notes]="selectNotes" 
+                [showcode]="showCode" 
+                (backPage)="back()"
+                (refreshPage)="getNotes()"
+                (deleteNote)="delete($event)"
+                (putShow)="putShow()">
+            </app-intern-note-edit>
+        </div>
+    </div>
+</div>
+

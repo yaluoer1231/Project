@@ -1,0 +1,56 @@
+
+<!--<h1 class="text-center">實習生資料<h1>
+
+<div class="card-group">
+    <div class="card" style="width: 18rem;" *ngFor="let intern of showInterns">
+        <img src="" class="card-img-top h3" alt="{{ intern.sort }}.{{ intern.name }}">
+        <div class="card-body" >
+        <h5 class="card-title">{{ intern.sex }}</h5>
+        <p class="card-text h6">{{ intern.eMail }}</p>
+        <a class="btn btn-primary" (click)="onSelect(intern, 1)">修改</a>
+        </div>
+    </div>
+</div>-->
+
+
+<div class= "interns">
+    <div class="internDate-select">
+        <div class="title">實習生資料查詢系統</div>
+        <div class="List">
+            <div class="Button_Area">
+                <button class="Add" (click)="onSelect(emptyIntern, 3)">新增資料</button>
+            </div>
+            <ul *ngFor="let intern of showInterns">
+                <li>
+                    <p class="Lock">
+                    <button class="Delete" (click)="isLock(intern)" *ngIf="intern.lock == false">鎖定</button>
+                    <button class="Delete" (click)="isLock(intern)" *ngIf="intern.lock == true">解除</button></p>
+                    <div class="intern" (click)="onSelect(intern, 4)">
+                        <p class="Sort"> {{ intern.sort }}.
+                        <p class="Name">{{ intern.name }}
+                        <p class="Sex">性別：{{ intern.sex }} </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="internDate-edit" >
+        <h3 class="notice" *ngIf="showCode == 0">請點擊左側實習生查看資料</h3>
+        <app-intern-details 
+            [intern]="selectedintern" 
+            [showCode]="showCode" 
+            [internLength]="internLength"
+            (changeCode)="setShowCode($event)"
+            (sexChange)="sexChange($event)" 
+            (goSort)="idChange($event)"
+            (goDelete)="delete($event)"
+            (refreshPage)="getIntern()"
+            (backPage)="back()">
+        </app-intern-details>
+    </div>
+    
+</div>
+
+
+
+

@@ -1,0 +1,46 @@
+.title{
+    height: 40px;
+    text-align: center;
+    font-size: 30px;
+    padding-bottom: 0.8rem;
+    border-bottom-style: inset;
+    display: flex;
+    flex-direction: row;
+    button[type="delete"] {
+      margin-right: 0;
+    }
+    p{
+      margin: 0;
+    }
+  }
+.back{
+    width: 25%;
+    text-align: left;
+}
+.function{
+    width: 50%;
+    text-align: center;
+}
+.titlebutton{
+    width: 25%;
+    text-align: right;
+}
+
+.NoticeText{
+  height: auto;
+  text-align: center;
+  font-size: 25px;
+}
+
+
+.Show{
+  margin-top: 10px;
+  height: auto;
+  overflow-y: auto;
+}
+
+.Update,.Post{
+  margin-left: 200px;
+  height: 350px;
+  overflow-y: auto;
+}

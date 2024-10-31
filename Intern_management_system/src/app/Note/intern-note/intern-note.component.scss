@@ -1,0 +1,78 @@
+.dateSort{
+  margin-left: 3rem;
+}
+
+
+ul{
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+li{
+  width: 1170px;
+  display: flex;
+  flex-direction: row;
+  padding: 0;
+}
+
+.ListTitle p{
+    margin: 0;
+    font-size: 20px;
+    margin-bottom: 0.5rem;
+    border-bottom-style: inset;
+    border-width: 4px;
+}
+.NoteIntern{
+  width: 150px;
+}
+.Notetitle{
+  width: 600px;
+}
+.NoteDateModifited{
+  width: 250px;
+  text-align: center;
+}
+.ButtonContorl{
+  width: 170px;
+  margin: 0;
+}
+
+.ListNote {
+  height: 40px;
+  line-height: 40px;
+  font-size: 1.2rem;
+  padding-bottom: 4px;
+  padding-top: 4px;
+  border-bottom-style: inset;
+  border-width: 2px;
+  .ClickArea{
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    font-size: 1.2rem;
+    text-align: left;
+  }
+  .ClickArea:hover{
+    background-color: rgba(131, 131, 131, 0.515);
+  }
+  .ClickArea:active{
+    background-color: rgba(51, 51, 51, 0.515);
+  }
+  .NoteIntern{
+    text-align: center;
+  }
+  .Notetitle{
+  font-weight: bolder;
+  }
+  p{
+    margin: 0;
+  }
+}
+
+.NoteEdit {
+  width: 60rem;
+  background-color: rgba(255, 255, 255, 0.737);
+  margin-bottom: 2rem;
+  
+  display: flex;
+  justify-content: center;
+}
